@@ -11,7 +11,7 @@ The created projects feature:
 Generated folder structure:
 - `bin` Here are several subdirectorys generated after build that contain your final `exe`s
 - `build` Internal Visual Studio stuff. *just ignore it ;)*
-- `include` Here are your `.h`header files stored
+- `include` Here are your `.h` header files stored
 - `lib` In the two subdirectories coresponding to the different build targets you can put your additional `.lib`s and `.dll`s. Note: The`.dll`s are automatically copied to the `bin` directory.
   - `x64` 
   - `x86`
