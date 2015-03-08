@@ -5,17 +5,17 @@ This comes in handy if you don´t want to change all the settings everytime you 
 The created projects feature:
 - Clean build environment
 - Auto include the correct `.lib` files for the current build target
-- Auto copy the correct `.dll`´s to the bin directory
+- Auto copy the correct `.dll`s to the bin directory
 - The build executables do not need any Visual Studio Redistributable Packages to run on other machines *(I haven´t tested this so far but this should work)*
 
 Generated folder structure:
-- `bin` Here are several subdirectorys generated after build that contain your final `exe`´s
+- `bin` Here are several subdirectorys generated after build that contain your final `exe`s
 - `build` Internal Visual Studio stuff. *just ignore it ;)*
 - `include` Here are your `.h`header files stored
-- `lib` In the two subdirectories coresponding to the different build targets you can put your additional `.lib`´s and `.dll`´s. Note: The`.dll`´s are automatically copied to the `bin` directory.
+- `lib` In the two subdirectories coresponding to the different build targets you can put your additional `.lib`s and `.dll`s. Note: The`.dll`s are automatically copied to the `bin` directory.
   - `x64` 
   - `x86`
-- `run` In this folder, the programm is run by Visual Studio. Put files that the project uses while running there but no `.dll`´s
+- `run` In this folder, the programm is run by Visual Studio. Put files that the project uses while running there but no `.dll`s
 - `src` Here comes your code
 
 
