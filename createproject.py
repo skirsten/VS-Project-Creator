@@ -4,12 +4,18 @@ import shutil
 import uuid
 import re
 
+# Configuration:
+template_dir_name = "VS2013"
+additional_empty_dirs = ["bin", "build", "include", "run", "lib/x64", "lib/x86"]
+# This is neccessary because you cant push empty dirs in git.
+# But if you use it on your local computer you can just create empty directorys in your template folder!
+
 if len(sys.argv) != 2:
 	print("Usage: " + os.path.basename(__file__) + " [PROJECT NAME]")
 	sys.exit(0)
 
 project_name = sys.argv[1].strip()
-template_dir_name = "VS2013"
+
 
 uuid_re = re.compile(r"\{\$UUID_([0-9]+)\$\}")
 
@@ -27,7 +33,15 @@ if os.path.exists(project_dir):
 
 for root, dirs, files in os.walk(template_dir):
 	for name in dirs:
-		os.makedirs(os.path.join(project_dir, os.path.join(os.path.relpath(root, template_dir)), name))
+		directory = os.path.join(project_dir, os.path.join(os.path.relpath(root, template_dir)), name)
+		os.makedirs(directory)
+
+for name in additional_empty_dirs:
+	directory = os.path.join(project_dir, name)
+
+	if not os.path.exists(directory):
+		os.makedirs(directory)
+		
 
 uuid_dict = {}
 
