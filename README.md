@@ -12,7 +12,7 @@ Generated folder structure:
 - `bin` Here are several subdirectorys generated after build that contain your final `exe`s
 - `build` Internal Visual Studio stuff. *just ignore it ;)*
 - `include` Here are your `.h` header files stored
-- `lib` In the two subdirectories coresponding to the different build targets you can put your additional `.lib`s and `.dll`s. Note: The`.dll`s are automatically copied to the `bin` directory.
+- `lib` In the two subdirectories coresponding to the different build targets you can put your additional `.lib`s and `.dll`s. Note: The`.dll`s are automatically copied to the `bin` directory
   - `x64` 
   - `x86`
 - `run` In this folder, the programm is run by Visual Studio. Put files that the project uses while running there but no `.dll`s
@@ -24,7 +24,7 @@ Generated folder structure:
 # Configuration
 In the top of the `createproject.py` you can customize two variables:
 - `template_dir_name = "VS2013"`
-- `emptydirs_file_name = ".emptydirs"` This is neccessary because you cant push empty dirs in git. But if you use it on your local computer you can just create empty directories in your template folder!
+- `emptydirs_file_name = ".emptydirs"` This is neccessary because you can´t push empty dirs in git. But if you use it on your local computer you can just create empty directories in your template folder!
 
 # Usage
 ## Windows
@@ -37,7 +37,12 @@ You will be prompted with the project´s name.
 Run `python createproject.py [project name]` in the folder you want the project to be created.
 
 # Custom templates
-Of course this is a pretty simple script that can be applied to different templates. To use your own template (It could be for whatever you want) simply modify / replace the files in the `template` folder. Use `$PROJECTNAME$` as a wildcard / dummy in filenames and file contents.
+Of course this is a pretty simple script that can be applied to different templates. To use your own template (It could be for whatever you want) simply modify / replace the files in the `template` folder.
+Use `$PROJECTNAME$` as a wildcard / dummy in filenames and file contents for the projectname.
+Use `$UUID_` number indentifier `$` as a wildcard for randomly generated UUID´s.
+Note: number only corresponds to one UUID (template wide, not just the file!) after first use.
+
+`$UUID_123$` in file a == `$UUID_123$` in file b.
 
 Have fun using this small but hopefully usefull script. 
 
