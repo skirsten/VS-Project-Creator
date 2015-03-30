@@ -1,0 +1,6 @@
+bin
+build
+include
+run
+lib/x64
+lib/x86

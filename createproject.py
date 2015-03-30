@@ -6,9 +6,9 @@ import re
 
 # Configuration:
 template_dir_name = "VS2013"
-additional_empty_dirs = ["bin", "build", "include", "run", "lib/x64", "lib/x86"]
+emptydirs_file_name = ".emptydirs"
 # This is neccessary because you cant push empty dirs in git.
-# But if you use it on your local computer you can just create empty directorys in your template folder!
+# But if you use it on your local computer you can just create empty directories in your template folder!
 
 if len(sys.argv) != 2:
 	print("Usage: " + os.path.basename(__file__) + " [PROJECT NAME]")
@@ -26,10 +26,24 @@ if project_name == template_dir_name:
 working_dir = os.path.dirname(os.path.realpath(__file__))
 project_dir = os.path.join(os.getcwd(), project_name)
 template_dir = os.path.join(working_dir, template_dir_name)
+emptydirs_file = os.path.join(template_dir, emptydirs_file_name)
 
 if os.path.exists(project_dir):
 	shutil.rmtree(project_dir)
 
+if os.path.exists(emptydirs_file):
+	additional_empty_dirs = []
+	
+	with open(emptydirs_file) as f:
+		for line in f.readlines():
+			directory = line.strip()
+			if not directory:
+				continue
+
+			additional_empty_dirs.append(directory)
+
+else:
+	additional_empty_dirs = []
 
 for root, dirs, files in os.walk(template_dir):
 	for name in dirs:
@@ -50,6 +64,9 @@ for root, dirs, files in os.walk(template_dir):
 		file_name = name.replace("$PROJECTNAME$", project_name)
 		in_file = os.path.join(root, name)
 		out_file = os.path.join(project_dir, os.path.join(os.path.relpath(root, template_dir)), file_name)
+
+		if in_file == emptydirs_file:
+			continue
 
 		with open(in_file) as f:
 			content = f.read()

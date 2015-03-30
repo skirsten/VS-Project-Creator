@@ -18,9 +18,13 @@ Generated folder structure:
 - `run` In this folder, the programm is run by Visual Studio. Put files that the project uses while running there but no `.dll`s
 - `src` Here comes your code
 
-
 ## Requirements
-- python 2.7 or 3.4 (should work with all modern versions)
+- python 2.7+ and python 3 (should work with all modern versions)
+
+# Configuration
+In the top of the `createproject.py` you can customize two variables:
+- `template_dir_name = "VS2013"`
+- `emptydirs_file_name = ".emptydirs"` This is neccessary because you cant push empty dirs in git. But if you use it on your local computer you can just create empty directories in your template folder!
 
 # Usage
 ## Windows
