@@ -1,6 +1,6 @@
 ## Visual Studio Project Creator
 This python script creates Visual Studio projects for you using template directories! 
-This comes in handy if you don´t want to change all the settings everytime you create a new project in Visual Studio or if you want all your projects to be structured the same way.
+This comes in handy if you don´t want to change all the settings every time you create a new project in Visual Studio or if you want all your projects to be structured the same way.
 
 The created projects feature:
 - Clean build environment
@@ -12,7 +12,7 @@ Generated folder structure:
 - `bin` Here are several subdirectories generated after build that contain your final `exe`s
 - `build` Internal Visual Studio stuff. *just ignore it ;)*
 - `include` Here are your `.h` header files stored
-- `lib` In the two subdirectories coresponding to the different build targets you can put your additional `.lib`s and `.dll`s. Note: The`.dll`s are automatically copied to the `bin` directory
+- `lib` In the two subdirectories corresponding to the different build targets you can put your additional `.lib`s and `.dll`s. Note: The`.dll`s are automatically copied to the `bin` directory
   - `x64` 
   - `x86`
 - `run` In this folder, the program is run by Visual Studio. Put files that the project uses while running there but no `.dll`s
@@ -23,7 +23,7 @@ Generated folder structure:
 
 # Configuration
 In the top of the `createproject.py` you can configure:
-- `emptydirs_file_name = ".emptydirs"` This is neccessary because you can´t push empty dirs in git. But if you use it on your local computer you can just create empty directories in your template folder! But don´t delete this file as it is used to identify template directories in input mode (not when specified by commandline)!
+- `emptydirs_file_name = ".emptydirs"` This is necessary because you can´t push empty dirs in git. But if you use it on your local computer you can just create empty directories in your template folder! But don´t delete this file as it is used to identify template directories in input mode (not when specified by command-line)!
 
 # Usage
 ## Windows
@@ -38,12 +38,12 @@ Invoking the `-i` option will prompt you with the project´s name and template.
 
 # Custom templates
 Of course this is a pretty simple script that can be applied to different templates. To use your own template (It could be for whatever you want) simply modify / replace the files in the `template` folder.
-Use `$PROJECTNAME$` as a wildcard / dummy in filenames and file contents for the projectname.
-Use `$UUID_` number indentifier `$` as a wildcard for randomly generated UUID´s.
-Note: number only corresponds to one UUID (template wide, not just the file!) after first use.
+Use `$PROJECTNAME$` as a wildcard / dummy in filenames and file contents for the project´s name.
+Use `$UUID_*NUMBER IDENTIFIER*$` as a wildcard for randomly generated UUID´s.
+Note: The identifier only corresponds to one UUID (template wide, not just the file!) after first use.
 
 `$UUID_123$` in file a == `$UUID_123$` in file b.
 
-Have fun using this small but hopefully usefull script. 
+Have fun using this small but hopefully useful script.
 
 Simon
